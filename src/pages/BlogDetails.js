@@ -9,10 +9,10 @@ const BlogDetails = () => {
     data: blog,
     isPending,
     error,
-  } = useFetch("http://localhost:8000/blogs/" + id);
+  } = useFetch("https://blogs-json-server.vercel.app/blogs/" + id);
 
   const handleClick = () => {
-    fetch("http://localhost:8000/blogs/" + id, {
+    fetch("https://blogs-json-server.vercel.app/blogs/" + id, {
       method: "DELETE",
     }).then((res) => {
       navigate("/");

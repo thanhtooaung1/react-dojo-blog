@@ -7,19 +7,13 @@ const Home = () => {
     data: blogs,
     isPending,
     error,
-  } = useFetch("http://localhost:8000/blogs");
-
-  const handleDelete = (id) => {
-    const resultBlogs = blogs.filter((blog) => blog.id != id);
-  };
+  } = useFetch("https://blogs-json-server.vercel.app/blogs");
 
   return (
     <div className="home">
       {isPending && <div>Loading...</div>}
       {error && <div>{error}</div>}
-      {blogs && (
-        <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
-      )}
+      {blogs && <BlogList blogs={blogs} title="All Blogs" />}
     </div>
   );
 };
